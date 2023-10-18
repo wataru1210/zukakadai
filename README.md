@@ -1,10 +1,13 @@
 # zukakadai
----marmaid
+```mermaid
 flowchart LR
+
 st{{学生}}
 
 sys{{教員}}
+x{出席データベース}
 
+st---t{学生証の提示}
 st --- t1(課題を出す)
 st --- t2(期末試験を受ける)
 st --- t3(講義中に発言する)
@@ -19,6 +22,8 @@ ev1 --- sys
 ev2 --- sys
 ev3 --- sys
 
+t---x
+x---tt{出席率算出}
 ev4(合計点計算) --- sys
 ev5(評価登録) --- sys
 ev6(再評価する) --- sys
@@ -32,11 +37,13 @@ t3
 ev1
 ev2
 ev3
+t
 end
 
 subgraph 期末処理
 ev4
 ev5
+tt
 end
 
 subgraph 成績調査
@@ -45,3 +52,5 @@ c1
 ev6
 ex1
 end
+
+```
